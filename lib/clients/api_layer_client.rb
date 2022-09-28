@@ -3,6 +3,7 @@ require 'net/http'
 
 class ApiLayerClient
   ROOT_ENDPOINT = 'https://api.apilayer.com/currency_data'.freeze
+  ACCESS_TOKEN = 'RY6ogV9vWxpI5xh42I6x177IC2NYrFi7'.freeze
 
   def list
     url = URI("#{ROOT_ENDPOINT}/list")
@@ -23,7 +24,7 @@ class ApiLayerClient
     https.use_ssl = true
 
     request = Net::HTTP::Get.new(url)
-    request['apikey'] = 'RY6ogV9vWxpI5xh42I6x177IC2NYrFi7'
+    request['apikey'] = ACCESS_TOKEN
 
     response = https.request(request).read_body
 
