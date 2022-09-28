@@ -1,9 +1,9 @@
 class CurrenciesController < ApplicationController
-  def live
-    ApiLayerService.new.live_call
+  def live(currensies, source)
+    ApiLayerService.new.live_call(currensies, source)
   end
 
   def list
-    ApiLayerService.new.list_call(currensies, source)
+    ApiLayerService.new.list_call
   end
 end

@@ -3,11 +3,11 @@ class ApiLayerService
     @client = client || ApiLayerClient.new
   end
 
-  def list_call(currensies, source)
+  def live_call(currensies, source)
     @client.live(currensies, source)
   end
 
-  def live_call
+  def list_call
     @client.list
   end
 end
