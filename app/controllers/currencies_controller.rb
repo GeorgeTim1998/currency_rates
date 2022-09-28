@@ -3,11 +3,20 @@ class CurrenciesController < ApplicationController
     render :show
   end
 
-  def live(currensies, source)
-    ApiLayerService.new.live_call(currensies, source)
+  def live
+    ApiLayerService.new.live_call(live_params)
   end
 
   def list
     ApiLayerService.new.list_call
+  end
+
+  private
+
+  def live_params
+    {
+      source: 'EUR',
+      currencies: 'RUB'
+    }
   end
 end

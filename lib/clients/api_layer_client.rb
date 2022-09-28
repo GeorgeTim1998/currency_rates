@@ -16,27 +16,17 @@ class ApiLayerClient
     end
   end
 
-  def live(currensies, source)
-    url = URI("#{ROOT_ENDPOINT}/live?source=#{source}&currencies=#{currensies}")
-
-    send_request(url)
+  def live(params)
+    @http_client.get('live') do |request|
+      request['apikey'] = ACCESS_TOKEN
+      request['Content-Type'] = 'application/json'
+      request.params = params
+    end
   end
 
   private
 
   def setup_http_client
     Faraday.new(url: ROOT_ENDPOINT)
-  end
-
-  def send_request(url)
-    https = Net::HTTP.new(url.host, url.port)
-    https.use_ssl = true
-
-    request = Net::HTTP::Get.new(url)
-    request['apikey'] = ACCESS_TOKEN
-
-    response = https.request(request).read_body
-
-    JSON.parse(response)
   end
 end
