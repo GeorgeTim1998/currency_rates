@@ -4,10 +4,10 @@ class ApiLayerService
   end
 
   def live_call(params)
-    @client.live(params)
+    JSON.parse(@client.live(params).body)
   end
 
   def list_call
-    @client.list
+    JSON.parse(@client.list.body)
   end
 end

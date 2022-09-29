@@ -1,4 +1,6 @@
 class CurrenciesController < ApplicationController
+
+  before_action :create_buffer
   def show
     render :show
   end
@@ -8,7 +10,7 @@ class CurrenciesController < ApplicationController
   end
 
   def list
-    ApiLayerService.new.list_call
+    @currencies.buffer = ApiLayerService.new.list_call
   end
 
   private
@@ -18,5 +20,9 @@ class CurrenciesController < ApplicationController
       source: 'EUR',
       currencies: 'RUB'
     }
+  end
+
+  def create_buffer
+    @currencies = Currency.new
   end
 end
