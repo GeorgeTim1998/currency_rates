@@ -1,0 +1,13 @@
+<%= form_with url: live_currencies_path, method: :get, local:true  do |form| %>
+  <p>
+    <%= form.label :source %><br>
+    <%= form.text_field :source %><br>
+  </p>
+
+  <p>
+    <%= form.label :currencies %><br>
+    <%= form.text_field :currencies %><br>
+  </p>
+
+  <p><%= form.submit %></p>
+<% end %>
