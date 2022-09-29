@@ -1,5 +1,4 @@
 class CurrenciesController < ApplicationController
-
   before_action :create_buffer
   def show
     render :show
