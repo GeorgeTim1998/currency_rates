@@ -2,6 +2,10 @@
 - API for finding out realtime currency rates
 - Responses are cashed in redis and then saved on database 
 
+## API endpoints
+- `/list` returns all available currencies.
+- `/live` get the most recent exchange rate data of selected `currencies` agains `source`.
+
 ## Requirements
 - ruby 2.7.0
 - rails 6
