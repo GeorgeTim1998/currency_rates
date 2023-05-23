@@ -39,5 +39,5 @@ gem install bundle
 bundle install
 ```
 
-## Lauch web app
+## Lauch
 `rails c`
