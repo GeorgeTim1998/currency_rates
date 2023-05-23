@@ -1,5 +1,6 @@
 ## Project name: Currency Rates
 - API for finding out realtime currency rates
+- Responses are cashed in redis and then saved on database 
 
 ## Requirements
 - ruby 2.7.0
@@ -38,6 +39,9 @@ Bundle:
 gem install bundle
 bundle install
 ```
+## Create database and migrate schema
+- `rails db:create`
+- `rails db:migrate`
 
 ## Lauch
 `rails c`
